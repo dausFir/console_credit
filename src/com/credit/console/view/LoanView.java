@@ -2,6 +2,7 @@ package com.credit.console.view;
 
 import java.util.Scanner;
 
+import com.credit.console.model.LoanCalculation;
 import com.credit.console.utils.ValidatorUtils;
 
 public class LoanView {
@@ -69,13 +70,13 @@ public class LoanView {
     }
 
     public void switchSheets() {
-        System.out.print("Enter sheet index to switch to (0-9): ");
-        int index = scanner.nextInt();
-        if (index >= 0 && index < 10) {
-            System.out.println("Switched to sheet " + index);
-        } else {
-            System.out.println("Invalid sheet index.");
-        }
+	    System.out.print("Enter sheet index to switch to (0-9): ");
+	    int index = scanner.nextInt();
+	    if (index >= 0 && index < 10) {
+	        System.out.println("Switched to sheet " + index);
+	    } else {
+	        System.out.println("Invalid sheet index.");
+	    }
     }
 
     public void saveSheet() {
@@ -83,4 +84,27 @@ public class LoanView {
         System.out.println("Saving current sheet...");
         // Implement your saving logic here
     }
+
+	public void displayPreviousCalculation(int i, LoanCalculation calculation) {
+		// TODO Auto-generated method stub
+		 System.out.printf("%d. Vehicle Type: %s, Condition: %s, Year: %d, Loan Amount: Rp. %.2f, Tenor: %d years, Down Payment: Rp. %.2f, Monthly Installment: Rp. %.2f\n",
+			                i, calculation.getVehicleType(), calculation.getCondition(), calculation.getYear(),
+			                calculation.getLoanAmount(), calculation.getTenor(), calculation.getDownPayment(),
+			                calculation.getMonthlyInstallment());
+	}
+
+	public int getCalculationIndex(int size) {
+		// TODO Auto-generated method stub
+		  System.out.print("Select a calculation to load (1-" + size + "): ");
+	      return scanner.nextInt();
+	}
+
+	public void displayLoadedCalculation(LoanCalculation calculation) {
+		// TODO Auto-generated method stub
+		System.out.printf("Loaded Calculation: Vehicle Type: %s, Condition: %s, Year: %d, Loan Amount: Rp. %.2f, Tenor: %d years, Down Payment: Rp. %.2f, Monthly Installment: Rp. %.2f\n",
+                calculation.getVehicleType(), calculation.getCondition(), calculation.getYear(),
+                calculation.getLoanAmount(), calculation.getTenor(), calculation.getDownPayment(),
+                calculation.getMonthlyInstallment());
+		
+	}
 }
