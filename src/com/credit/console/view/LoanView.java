@@ -107,4 +107,17 @@ public class LoanView {
                 calculation.getMonthlyInstallment());
 		
 	}
+	
+	public int chooseLoadOption() {
+	    System.out.println("Choose Load Option:");
+	    System.out.println("1. Load Previous Calculations");
+	    System.out.println("2. Load Saved Sheets");
+	    Scanner scanner = new Scanner(System.in);
+	    return scanner.nextInt();
+	}
+
+	 public void displaySavedSheet(int i, LoanCalculation calculation) {
+	        System.out.printf("Saved Sheet ID: %d | Vehicle Type: %s | Condition: %s | Year: %d | Loan Amount: Rp. %.2f | Tenor: %d years | Down Payment: Rp. %.2f | Monthly Installment: Rp. %.2f\n",
+	                i, calculation.getVehicleType(), calculation.getCondition(), calculation.getYear(), calculation.getLoanAmount(), calculation.getTenor(), calculation.getDownPayment(), calculation.getMonthlyInstallment());
+	    }
 }
