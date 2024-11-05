@@ -1,11 +1,12 @@
 package com.credit.console;
 
+import com.credit.console.controller.LoanController;
+import com.credit.console.view.LoanView;
+
 public class Main {
-  public static void main(String[] args) {
-        System.out.println("Welcome to the Credit Simulator!");
-        System.out.println("Select an option:");
-        System.out.println("1. Calculate Loan");
-        System.out.println("2. Exit");
-        // Implement a basic input loop later
+	public static void main(String[] args) {
+		LoanView loanView = new LoanView();
+        LoanController loanController = new LoanController(loanView);
+        loanController.start(); 
     }
 }
